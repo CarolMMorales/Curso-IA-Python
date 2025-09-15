@@ -1,0 +1,12 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+#importar datos 
+dataset = pd.read_csv('Data.csv', delimiter=';')
+x = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+
+#imprimir resultados
+print(x)
+print(y)
