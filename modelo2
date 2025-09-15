@@ -1,0 +1,20 @@
+#Se agregan datos faltantes 
+
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+dataset = pd.read_csv('Data.csv', delimiter=';')
+x = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+
+print(x)
+print(y)
+
+#Libreria par importar los datos faltantes, asegurar de que solo tome los valores numericos ya que de caracteres puede dar error 
+
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+imputer.fit(x[:, 1:3])
+x[:, 1:3] = imputer.transform(x[:, 1:3])
+print(x)
